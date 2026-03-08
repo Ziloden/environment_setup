@@ -1,0 +1,12 @@
+[
+    {
+        "name": ".zshrc",
+        "home": true,
+        "path": ""
+    },
+        {
+        "name": ".bashrc",
+        "home": true,
+        "path": ""
+    }
+]
