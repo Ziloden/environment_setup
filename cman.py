@@ -29,21 +29,29 @@ def main():
     mode_group.add_argument(
         '-b',
         '--backup',
-        action='store_true',
-        default=True,
+        dest='mode',
+        action='store_const',
+        const='backup',
         help='Mode to backup configuration.',
     )
     mode_group.add_argument(
         '-r',
         '--restore',
-        action='store_true',
-        default=False,
+        dest='mode',
+        action='store_const',
+        const='restore',
         help='Mode to restore configuration.',
     )
     options = parser.parse_args()
 
-    if options.backup:
-        backup(options.manifest, options.target, options.user)
+    match options.mode:
+        case 'backup':
+            print("Running backup...")
+            backup(options.manifest, options.target, options.user)
+        case 'restore':
+            print("Running restore...")
+            restore(options.manifest, options.target, options.user)
+
 
 if __name__ == "__main__":
     main()
