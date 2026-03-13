@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import argparse
-from lib.config_management import backup, restore
+from lib.config_management import backup, restore, setup
 
 def main():
     parser = argparse.ArgumentParser(
@@ -42,6 +42,14 @@ def main():
         const='restore',
         help='Mode to restore configuration.',
     )
+    mode_group.add_argument(
+        '-s',
+        '--setup',
+        dest='mode',
+        action='store_const',
+        const='setup',
+        help='Mode to setup from scratch and install packages.',
+    )
     options = parser.parse_args()
 
     match options.mode:
@@ -51,6 +59,9 @@ def main():
         case 'restore':
             print("Running restore...")
             restore(options.manifest, options.target, options.user)
+        case 'setup':
+            print("Running setup of environment...")
+            setup()
 
 
 if __name__ == "__main__":

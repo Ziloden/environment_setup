@@ -1,12 +1,22 @@
-[
-    {
-        "name": ".zshrc",
-        "home": true,
-        "path": ""
-    },
+{
+    "backups": [
         {
-        "name": ".bashrc",
-        "home": true,
-        "path": ""
+            "name": ".zshrc",
+            "home": true,
+            "path": ""
+        },
+            {
+            "name": ".bashrc",
+            "home": true,
+            "path": ""
+        }
+    ],
+    "setup": {
+        "packages": [
+            {
+                "package_list": [],
+                "order": 10
+            }
+        ]
     }
-]
+}
