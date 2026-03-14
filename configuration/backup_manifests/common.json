@@ -11,12 +11,16 @@
             "path": ""
         }
     ],
-    "setup": {
-        "packages": [
-            {
-                "package_list": [],
-                "order": 10
-            }
-        ]
-    }
+    "setup": [
+        {
+            "distro_id": "Fedora",
+            "release": "43",
+            "packages": [
+                {
+                    "package_list": ["zsh"],
+                    "order": 10
+                }
+            ]
+        }
+    ]
 }

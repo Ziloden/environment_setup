@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import argparse
+from distro import id
 from lib.config_management import backup, restore, setup
 
 def main():
@@ -50,6 +51,12 @@ def main():
         const='setup',
         help='Mode to setup from scratch and install packages.',
     )
+    parser.add_argument(
+        '-d',
+        '--distro_id',
+        default=id(),
+        help='Distro installing on for determining which packages to use from manifest.',
+    )
     options = parser.parse_args()
 
     match options.mode:
@@ -61,7 +68,7 @@ def main():
             restore(options.manifest, options.target, options.user)
         case 'setup':
             print("Running setup of environment...")
-            setup()
+            setup(options.manifest, options.target, options.user, options.distro_id)
 
 
 if __name__ == "__main__":
